@@ -53,7 +53,7 @@ namespace todo_list
             else if (EventListBoxItem.IsSelected)
             {
                 MainContent.Navigate(typeof(EventList));
-                BackButton.Visibility = Visibility.Visible;
+                BackButton.Visibility = Visibility.Collapsed;
             }
             else if (SettingsListBoxItem.IsSelected) {
                 MainContent.Navigate(typeof(Settings));

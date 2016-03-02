@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using todo_list.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,21 @@ namespace todo_list
     /// </summary>
     public sealed partial class EventList : Page
     {
+        private List<Event> Events;
+
         public EventList()
         {
             this.InitializeComponent();
+            Events = EventManager.GetEvents();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
+
     }
 }

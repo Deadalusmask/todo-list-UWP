@@ -43,7 +43,7 @@ namespace todo_list
 
         private void ViewTodayButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ViewEvent));
+            Frame.Navigate(typeof(EventList));
         }
 
         private void AddNewEventButton_Click(object sender, RoutedEventArgs e)

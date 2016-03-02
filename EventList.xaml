@@ -5,9 +5,24 @@
     xmlns:local="using:todo_list"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:data="using:todo_list.Model" 
+    >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="EventListDataTemplate" x:DataType="data:Event">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Date"/>
+                <TextBlock Text="{x:Bind Title}" FontSize="16" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <StackPanel Orientation="Vertical">
+        <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
+        <ListView ItemsSource="{x:Bind Events}" 
+                      IsItemClickEnabled="True" 
+                      ItemTemplate="{StaticResource EventListDataTemplate}">
+        </ListView>    
+    </StackPanel>
 
-    </Grid>
 </Page>
