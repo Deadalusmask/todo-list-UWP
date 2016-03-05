@@ -9,20 +9,11 @@
     xmlns:data="using:todo_list.Model" 
     >
 
-    <Page.Resources>
-        <DataTemplate x:Key="EventListDataTemplate" x:DataType="data:Event">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Date"/>
-                <TextBlock Text="{x:Bind Title}" FontSize="16" />
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
+
     <StackPanel Orientation="Vertical">
         <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
-        <ListView ItemsSource="{x:Bind Events}" 
-                  IsItemClickEnabled="True"
-                  ItemClick="ListView_ItemClick"
-                  ItemTemplate="{StaticResource EventListDataTemplate}">
+        <AppBarButton Label="新增" Icon="Add" Click="AppBarButton_Click"/>
+        <ListView x:Name="List">
         </ListView>    
     </StackPanel>
 

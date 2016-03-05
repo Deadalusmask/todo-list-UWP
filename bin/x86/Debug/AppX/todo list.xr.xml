@@ -6,7 +6,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
-      <RootProperty Name="Resources" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Children" />
@@ -16,7 +15,6 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Name" />
@@ -39,27 +37,18 @@
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RichEditBox">
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Width" />
-    </RootType>
     <RootType FullName="todo_list.AddPage" />
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Label" />
+      <RootProperty Name="Icon" />
+      <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="IsItemClickEnabled" />
-      <RootProperty Name="ItemTemplate" />
-      <RootEvent Name="ItemClick" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView" />
     <RootType FullName="todo_list.EventList" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Children" />
@@ -83,7 +72,7 @@
       <RootProperty Name="Placement" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="todo_list.Home" />
+    <RootType FullName="todo_list.CalenderView" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="Name" />
       <RootProperty Name="DisplayMode" />

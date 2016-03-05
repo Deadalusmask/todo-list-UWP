@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using todo_list.Model;
+using Windows.Storage;
+using Windows.Data.Xml.Dom;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
 
@@ -28,12 +30,16 @@ namespace todo_list
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-            var selectedEvents = (Event)e.Parameter;
-            Title.Text = selectedEvents.Title;
-            Desc.Text = selectedEvents.Desc;
+            StorageFile file = e.Parameter as StorageFile;
+            if (file == null) return;
+            String itemName = file.DisplayName;
+            Title.Text = itemName;
+            XmlDocument doc = await XmlDocument.LoadFromFileAsync(file);
+            DateTextBlock.Text = doc.DocumentElement.Attributes.GetNamedItem("date").NodeValue.ToString();
+            Desc.Text = doc.DocumentElement.Attributes.GetNamedItem("describe").NodeValue.ToString();
+            Title.Text = itemName;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

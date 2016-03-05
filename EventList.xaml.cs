@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using todo_list.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,12 +24,49 @@ namespace todo_list
     /// </summary>
     public sealed partial class EventList : Page
     {
-        private List<Event> Events;
+
 
         public EventList()
         {
             this.InitializeComponent();
-            Events = EventManager.GetEvents();
+            Loaded += EventList_Loaded;
+        }
+
+
+        async void EventList_Loaded(object sender, RoutedEventArgs e)
+        {
+            List.Items.Clear();
+            StorageFolder storage = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TodoList", CreationCollisionOption.OpenIfExists);
+            var files = await storage.GetFilesAsync();
+            {
+                foreach (StorageFile file in files)
+                {
+                    Grid a = new Grid();
+                    ColumnDefinition col = new ColumnDefinition();
+                    col.Width = GridLength.Auto;
+                    a.ColumnDefinitions.Add(col);
+                    ColumnDefinition col2 = new ColumnDefinition();
+                    col2.Width = GridLength.Auto;
+                    a.ColumnDefinitions.Add(col2);
+                    TextBlock txbx = new TextBlock();
+                    txbx.Text = file.DisplayName;
+                    txbx.HorizontalAlignment = HorizontalAlignment.Center;
+                    Grid.SetColumn(txbx, 0);
+                    HyperlinkButton btn = new HyperlinkButton();
+                    btn.Content = "查看详细";
+                    btn.Name = file.DisplayName;
+                    btn.Click += (s, ea) =>
+                    {
+                        Frame.Navigate(typeof(ViewEvent), file);
+                    };
+                    Grid.SetColumn(btn, 1);
+
+                    a.Children.Add(txbx);
+                    a.Children.Add(btn);
+
+                    List.Items.Add(a);
+                }
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -43,6 +81,11 @@ namespace todo_list
         {
             var selectedEvents = (Event)e.ClickedItem;
             Frame.Navigate(typeof(ViewEvent),selectedEvents);
+        }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddPage));
         }
     }
 }

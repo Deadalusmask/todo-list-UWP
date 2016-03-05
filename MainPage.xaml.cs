@@ -28,14 +28,14 @@ namespace todo_list
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
-            ApplicationView.PreferredLaunchViewSize = new Size(680,450);
+            ApplicationView.PreferredLaunchViewSize = new Size(680,440);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 680, Height = 450 });
         
 
             BackButton.Visibility = Visibility.Collapsed;
             HomeListBoxItem.IsSelected = true;
-            MainContent.Navigate(typeof(Home));
+            MainContent.Navigate(typeof(EventList));
 
         }
 
@@ -47,12 +47,12 @@ namespace todo_list
         private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (HomeListBoxItem.IsSelected) {
-                MainContent.Navigate(typeof(Home));
+                MainContent.Navigate(typeof(EventList));
                 BackButton.Visibility = Visibility.Collapsed;
             }
             else if (EventListBoxItem.IsSelected)
             {
-                MainContent.Navigate(typeof(EventList));
+                MainContent.Navigate(typeof(CalenderView));
                 BackButton.Visibility = Visibility.Collapsed;
             }
             else if (SettingsListBoxItem.IsSelected) {

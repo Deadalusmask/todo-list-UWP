@@ -23,14 +23,14 @@
                     <ListBoxItem Name="HomeListBoxItem">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="22" Text="&#xE10F;" />
-                            <TextBlock Text="Home" FontSize="16" Margin="20,0,0,0" />
+                            <TextBlock Text="EventList" FontSize="16" Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
                     
                     <ListBoxItem Name="EventListBoxItem">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="22" Text="&#xE71D;" />
-                            <TextBlock Text="Event List" FontSize="16" Margin="20,0,0,0" />
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="22" Text="&#xE163;" />
+                            <TextBlock Text="CalenderView" FontSize="16" Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
 
