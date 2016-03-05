@@ -39,5 +39,10 @@ namespace todo_list
             }
         }
 
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var selectedEvents = (Event)e.ClickedItem;
+            Frame.Navigate(typeof(ViewEvent),selectedEvents);
+        }
     }
 }

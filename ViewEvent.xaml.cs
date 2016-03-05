@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using todo_list.Model;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
 
@@ -25,6 +26,14 @@ namespace todo_list
         public ViewEvent()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var selectedEvents = (Event)e.Parameter;
+            Title.Text = selectedEvents.Title;
+            Desc.Text = selectedEvents.Desc;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

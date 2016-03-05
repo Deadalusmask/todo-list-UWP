@@ -20,8 +20,9 @@
     <StackPanel Orientation="Vertical">
         <Button x:ConnectionId='4'  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;"                         />
         <ListView x:ConnectionId='5'                               
-                      IsItemClickEnabled="True" 
-                      ItemTemplate="{StaticResource EventListDataTemplate}">
+                  IsItemClickEnabled="True"
+                                                
+                  ItemTemplate="{StaticResource EventListDataTemplate}">
         </ListView>    
     </StackPanel>
 
