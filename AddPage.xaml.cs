@@ -54,7 +54,6 @@ namespace todo_list
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
                 if (Title.Text == "" || Desc.Text == "") 
                 {
                     await new MessageDialog("Title or Desc couldn't be empty").ShowAsync();

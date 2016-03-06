@@ -30,6 +30,7 @@ namespace todo_list
         {
             this.InitializeComponent();
             Loaded += EventList_Loaded;
+            BackButton.Visibility = Visibility.Collapsed;
         }
 
 
@@ -43,30 +44,58 @@ namespace todo_list
                 {
                     Grid a = new Grid();
                     ColumnDefinition col = new ColumnDefinition();
-                    col.Width = GridLength.Auto;
+                    col.Width = new GridLength(100);
                     a.ColumnDefinitions.Add(col);
                     ColumnDefinition col2 = new ColumnDefinition();
-                    col2.Width = GridLength.Auto;
+                    col2.Width = new GridLength(60);
                     a.ColumnDefinitions.Add(col2);
+                    ColumnDefinition col3 = new ColumnDefinition();
+                    col3.Width = new GridLength(430);
+                    a.ColumnDefinitions.Add(col3);
                     TextBlock txbx = new TextBlock();
                     txbx.Text = file.DisplayName;
                     txbx.HorizontalAlignment = HorizontalAlignment.Center;
+                    txbx.VerticalAlignment = VerticalAlignment.Center;
                     Grid.SetColumn(txbx, 0);
                     HyperlinkButton btn = new HyperlinkButton();
-                    btn.Content = "查看详细";
+                    btn.Content = "View";
                     btn.Name = file.DisplayName;
+                    btn.HorizontalAlignment = HorizontalAlignment.Right;
+                    btn.VerticalAlignment = VerticalAlignment.Center;
                     btn.Click += (s, ea) =>
                     {
                         Frame.Navigate(typeof(ViewEvent), file);
                     };
                     Grid.SetColumn(btn, 1);
+                    Button delate = new Button();
+                    delate.HorizontalAlignment = HorizontalAlignment.Right;
+                    delate.VerticalAlignment = VerticalAlignment.Center;
+                    delate.Content = "Delate";
+                    Confirm.Click += async (s, ea) =>
+                    {
+                        await file.DeleteAsync();
+                        ConfirmFlyout.Hide();
+                        Frame.Navigate(typeof(EventList));
+                    };
+                    Cancel.Click += (s, ea) =>
+                    {
+                        ConfirmFlyout.Hide();
+                    };
+                    delate.Flyout = ConfirmFlyout;
+                    delate.Flyout = ConfirmFlyout;
+                    Grid.SetColumn(delate, 2);
 
                     a.Children.Add(txbx);
                     a.Children.Add(btn);
-
+                    a.Children.Add(delate);
                     List.Items.Add(a);
                 }
             }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

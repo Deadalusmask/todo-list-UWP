@@ -9,7 +9,7 @@
 
     <RelativePanel>
         <StackPanel Margin="10">
-
+            <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
             <CalendarView Name="maincalender" 
                           SelectionMode="Single" 
                           SelectedDatesChanged="maincalender_SelectedDatesChanged"

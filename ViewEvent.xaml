@@ -26,20 +26,7 @@
                 <Button Content="done" Margin="150,0,0,20">
 
                 </Button>
-                <Button Content="delete" Margin="30,0,0,20">
-                    <Button.Flyout>
-                        <Flyout>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="Are you sure to delete this event?"/>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Content="Yes" Margin="10"/>
-                                    <Button Content="cancel" Margin="10"/>
-                                </StackPanel>
-                            </StackPanel>
 
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
             </StackPanel>
         </StackPanel>
     </StackPanel>

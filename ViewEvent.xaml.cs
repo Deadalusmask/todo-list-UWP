@@ -28,6 +28,7 @@ namespace todo_list
         public ViewEvent()
         {
             this.InitializeComponent();
+            StorageFile ABC;
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -40,6 +41,7 @@ namespace todo_list
             DateTextBlock.Text = doc.DocumentElement.Attributes.GetNamedItem("date").NodeValue.ToString();
             Desc.Text = doc.DocumentElement.Attributes.GetNamedItem("describe").NodeValue.ToString();
             Title.Text = itemName;
+           
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

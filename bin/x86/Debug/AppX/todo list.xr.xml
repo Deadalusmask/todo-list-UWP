@@ -44,11 +44,16 @@
     </RootType>
     <RootType FullName="todo_list.AddPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Width" />
       <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Placement" />
+    </RootType>
     <RootType FullName="todo_list.EventList" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Children" />
@@ -67,10 +72,6 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootEvent Name="SelectedDatesChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
-      <RootProperty Name="Placement" />
-      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="todo_list.CalenderView" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">

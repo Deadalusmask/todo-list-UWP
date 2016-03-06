@@ -53,6 +53,12 @@ namespace todo_list
             Frame.Navigate(typeof(AddPage),parameters);
         }
 
-
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
     }
 }
