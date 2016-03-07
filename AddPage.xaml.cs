@@ -41,6 +41,13 @@ namespace todo_list
             {
                 var DateText = (TextBlock)e.Parameter;
                 DateTextBlock.Text = DateText.Text;
+                DatePicker.Visibility = Visibility.Collapsed;
+                TimePiacer.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                DateTextBlock.Visibility = Visibility.Collapsed;
+
             }
         }
 
@@ -54,24 +61,47 @@ namespace todo_list
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-                if (Title.Text == "" || Desc.Text == "") 
+            if (Title.Text == "" || Desc.Text == "") 
                 {
                     await new MessageDialog("Title or Desc couldn't be empty").ShowAsync();
+                    return;
                 }
 
-                StorageFolder storage = await ApplicationData.Current.LocalFolder.GetFolderAsync("TodoList");
-                XmlDocument _doc = new XmlDocument();
-                XmlElement _item = _doc.CreateElement(Title.Text);
+            StorageFolder storage = await ApplicationData.Current.LocalFolder.GetFolderAsync("TodoList");
+            XmlDocument _doc = new XmlDocument();
+            XmlElement _item = _doc.CreateElement(Title.Text);
+
+            if(DateTextBlock.Text!="")
+            {
                 _item.SetAttribute("date", DateTextBlock.Text);
-                _item.SetAttribute("describe", Desc.Text);
-                _doc.AppendChild(_item);
-                StorageFile file = await storage.CreateFileAsync(Title.Text + ".xml", CreationCollisionOption.ReplaceExisting);
-                await _doc.SaveToFileAsync(file);
-                Frame.GoBack();
+
+            }
+            else
+            {
+                var datetime = DatePicker.Date.Value.Year+"年"+DatePicker.Date.Value.Month+"月"+DatePicker.Date.Value.Day+"日" + TimePiacer.Time.Hours+"时"+TimePiacer.Time.Minutes+"分";
+                _item.SetAttribute("date", datetime);
+            }
+
+
+            _item.SetAttribute("describe", Desc.Text);
+            _doc.AppendChild(_item);
+            StorageFile file = await storage.CreateFileAsync(Title.Text + ".xml", CreationCollisionOption.ReplaceExisting);
+            await _doc.SaveToFileAsync(file);
+            Frame.GoBack();
 
 
 
 
+        }
+
+        private void DatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            var selectedDate = sender.Date;
+        }
+
+        private void TimePiacer_TimeChanged(object sender, TimePickerValueChangedEventArgs e)
+        {
+            var selectedTime = TimePiacer.Time;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace todo_list
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Size(680,440);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 680, Height = 450 });
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 650, Height = 450 });
         
 
             BackButton.Visibility = Visibility.Collapsed;

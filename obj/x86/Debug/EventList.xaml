@@ -20,8 +20,8 @@
                 <Flyout x:ConnectionId='4' x:Name="ConfirmFlyout">
                     <StackPanel>
                         <TextBlock Text="Confirm to delete?" HorizontalAlignment="Center" FontSize="22" Margin="0,0,0,10" />
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:ConnectionId='5' Name="Confirm" Content="Confirm"></Button>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Button x:ConnectionId='5' Name="Confirm" Content="Confirm" Margin="0,0,20,0"></Button>
                             <Button x:ConnectionId='6' Name="Cancel" Content="Cancel"></Button>
                         </StackPanel>
                     </StackPanel>
