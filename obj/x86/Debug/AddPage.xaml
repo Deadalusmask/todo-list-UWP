@@ -9,7 +9,7 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Button x:ConnectionId='1'  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;"                         />
+            <Button x:ConnectionId='1'  Name="BackButton" Background="#FFFF9BA2" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;"                         />
             <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
                 <TextBlock Text="Date" FontSize="20" Width="100"></TextBlock>
                 <TextBlock x:ConnectionId='5' Name="DateTextBlock" FontSize="24"/>

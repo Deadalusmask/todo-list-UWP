@@ -28,7 +28,7 @@ namespace todo_list
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
-            ApplicationView.PreferredLaunchViewSize = new Size(680,440);
+            ApplicationView.PreferredLaunchViewSize = new Size(660,440);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 650, Height = 450 });
         
@@ -53,7 +53,7 @@ namespace todo_list
             else if (EventListBoxItem.IsSelected)
             {
                 MainContent.Navigate(typeof(CalenderView));
-                BackButton.Visibility = Visibility.Collapsed;
+                BackButton.Visibility = Visibility.Visible;
             }
             else if (SettingsListBoxItem.IsSelected) {
                 MainContent.Navigate(typeof(Settings));

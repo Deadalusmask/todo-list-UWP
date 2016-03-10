@@ -12,14 +12,16 @@
         <SplitView Name="MySplitView" 
                    DisplayMode="CompactOverlay" 
                    OpenPaneLength="200" 
-                   CompactPaneLength="44">
+                   CompactPaneLength="44"
+                   PaneBackground="#FFFF9BA2"
+                   Background="#19FF4856">
             <SplitView.Pane>
             <StackPanel>
                 <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="24" Click="HamburgerButton_Click" BorderThickness="2" />
                 <ListBox SelectionMode="Single" 
                          Name="IconsListBox" 
                          SelectionChanged="IconsListBox_SelectionChanged"
-                         x:FieldModifier="public">
+                         x:FieldModifier="public" Background="#00F2F2F2">
                     <ListBoxItem Name="HomeListBoxItem">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="22" Text="&#xE10F;" />

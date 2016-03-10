@@ -11,7 +11,7 @@
 
 
     <StackPanel Orientation="Vertical">
-        <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
+        <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Background="#FFFF9BA2" Content="&#xE248;" Click="BackButton_Click"/>
         <AppBarButton Width="620" Label="新增" Icon="Add" Click="AppBarButton_Click"/>
         <ListView x:Name="List">
         </ListView>

@@ -70,6 +70,7 @@ namespace todo_list
             StorageFolder storage = await ApplicationData.Current.LocalFolder.GetFolderAsync("TodoList");
             XmlDocument _doc = new XmlDocument();
             XmlElement _item = _doc.CreateElement(Title.Text);
+            string datetime;
 
             if(DateTextBlock.Text!="")
             {
@@ -78,10 +79,17 @@ namespace todo_list
             }
             else
             {
-                var datetime = DatePicker.Date.Value.Year+"年"+DatePicker.Date.Value.Month+"月"+DatePicker.Date.Value.Day+"日" + TimePiacer.Time.Hours+"时"+TimePiacer.Time.Minutes+"分";
-                _item.SetAttribute("date", datetime);
+                if (DatePicker.Date.Value!=null|| TimePiacer.Time != null)
+                {
+                    datetime = DatePicker.Date.Value.Year + "年" + DatePicker.Date.Value.Month + "月" + DatePicker.Date.Value.Day + "日" + TimePiacer.Time.Hours + "时" + TimePiacer.Time.Minutes + "分";
+                    _item.SetAttribute("date", datetime);
+                }
+                else
+                {
+                    await new MessageDialog("Please select a date").ShowAsync();
+                    return;
+                }
             }
-
 
             _item.SetAttribute("describe", Desc.Text);
             _doc.AppendChild(_item);

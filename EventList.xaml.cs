@@ -50,7 +50,7 @@ namespace todo_list
                     col2.Width = new GridLength(60);
                     a.ColumnDefinitions.Add(col2);
                     ColumnDefinition col3 = new ColumnDefinition();
-                    col3.Width = new GridLength(430);
+                    col3.Width = new GridLength(410);
                     a.ColumnDefinitions.Add(col3);
                     TextBlock txbx = new TextBlock();
                     txbx.Text = file.DisplayName;
@@ -70,7 +70,7 @@ namespace todo_list
                     Button delate = new Button();
                     delate.HorizontalAlignment = HorizontalAlignment.Right;
                     delate.VerticalAlignment = VerticalAlignment.Center;
-                    delate.Content = "Delate";
+                    delate.Content = "Delete";
                     Confirm.Click += async (s, ea) =>
                     {
                         await file.DeleteAsync();

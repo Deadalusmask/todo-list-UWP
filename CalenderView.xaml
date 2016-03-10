@@ -9,13 +9,14 @@
 
     <RelativePanel>
         <StackPanel Margin="0">
-            <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
+            <Button Visibility="Collapsed"  Name="BackButton" Background="#FFFF9BA2" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
             <CalendarView Name="maincalender" 
                           SelectionMode="Single" 
                           SelectedDatesChanged="maincalender_SelectedDatesChanged"
+                          Background="Transparent"
                           FontSize="20"
                           Width="600"
-                          Height="400"/>
+                          Height="400" BorderBrush="Transparent"/>
             <Button Visibility="Collapsed" Content="Flyout">
                 <Button.Flyout>
                     <Flyout x:Name="MyFlyout" Placement="Bottom">

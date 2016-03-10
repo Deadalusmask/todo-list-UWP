@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
+        <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" Background="#FFFF9BA2" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
                 <TextBlock Text="Date" FontSize="20" Width="100"/>
