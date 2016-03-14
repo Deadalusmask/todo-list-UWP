@@ -79,7 +79,10 @@ namespace todo_list
             }
             else
             {
-                if (DatePicker.Date.Value!=null|| TimePiacer.Time != null)
+                TextBlock aaa = new TextBlock();
+                aaa.Visibility = Visibility.Collapsed;
+                aaa.Text=DatePicker.Date.ToString();
+                if (aaa.Text!="")
                 {
                     datetime = DatePicker.Date.Value.Year + "年" + DatePicker.Date.Value.Month + "月" + DatePicker.Date.Value.Day + "日" + TimePiacer.Time.Hours + "时" + TimePiacer.Time.Minutes + "分";
                     _item.SetAttribute("date", datetime);

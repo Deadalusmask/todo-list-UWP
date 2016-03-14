@@ -50,10 +50,10 @@ namespace todo_list
                 MainContent.Navigate(typeof(EventList));
                 BackButton.Visibility = Visibility.Collapsed;
             }
-            else if (EventListBoxItem.IsSelected)
+            else if (CalenderViewBoxItem.IsSelected)
             {
                 MainContent.Navigate(typeof(CalenderView));
-                BackButton.Visibility = Visibility.Visible;
+                BackButton.Visibility = Visibility.Collapsed;
             }
             else if (SettingsListBoxItem.IsSelected) {
                 MainContent.Navigate(typeof(Settings));

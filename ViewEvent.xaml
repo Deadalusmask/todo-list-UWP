@@ -26,7 +26,19 @@
                 <Button Content="done" Margin="150,0,0,20">
 
                 </Button>
-
+                <Button Content="Delete" Margin="50,0,0,20" >
+                    <Button.Flyout>
+                        <Flyout x:Name="ConfirmFlyout">
+                            <StackPanel>
+                                <TextBlock Text="Confirm to delete?" HorizontalAlignment="Center" FontSize="22" Margin="0,0,0,10" />
+                                <StackPanel Orientation="Horizontal" Margin="5">
+                                    <Button Name="Confirm" Content="Confirm" Margin="0,0,20,0"></Button>
+                                    <Button Name="Cancel" Content="Cancel" Click="Cancel_Click"></Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
             </StackPanel>
         </StackPanel>
     </StackPanel>

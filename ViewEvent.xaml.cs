@@ -28,7 +28,6 @@ namespace todo_list
         public ViewEvent()
         {
             this.InitializeComponent();
-            StorageFile ABC;
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -41,7 +40,12 @@ namespace todo_list
             DateTextBlock.Text = doc.DocumentElement.Attributes.GetNamedItem("date").NodeValue.ToString();
             Desc.Text = doc.DocumentElement.Attributes.GetNamedItem("describe").NodeValue.ToString();
             Title.Text = itemName;
-           
+            Confirm.Click += async (s, ea) =>
+            {
+                await file.DeleteAsync();
+                ConfirmFlyout.Hide();
+                Frame.Navigate(typeof(EventList));
+            };
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -50,6 +54,19 @@ namespace todo_list
             {
                 Frame.GoBack();
             }
+        }
+
+        //private void Confirm_Click(object sender, RoutedEventArgs e)
+        //{
+            
+        //    File.Delete(@"C:\Users\Deadalus\AppData\Local\Packages\a55a8e9d-c444-48ae-9fa5-b408eb896bdf_zkff6pj1bgdp2\LocalState\TodoList\"+Title.Text+".xml");
+        //    ConfirmFlyout.Hide();
+        //    Frame.Navigate(typeof(EventList));
+        //}
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            ConfirmFlyout.Hide();
         }
     }
 }

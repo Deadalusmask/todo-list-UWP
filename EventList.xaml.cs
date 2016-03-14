@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using todo_list.Model;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -44,20 +45,28 @@ namespace todo_list
                 {
                     Grid a = new Grid();
                     ColumnDefinition col = new ColumnDefinition();
-                    col.Width = new GridLength(100);
+                    col.Width = new GridLength(150);
                     a.ColumnDefinitions.Add(col);
                     ColumnDefinition col2 = new ColumnDefinition();
-                    col2.Width = new GridLength(60);
+                    col2.Width = new GridLength(200);
                     a.ColumnDefinitions.Add(col2);
                     ColumnDefinition col3 = new ColumnDefinition();
-                    col3.Width = new GridLength(410);
+                    col3.Width = new GridLength(180);
                     a.ColumnDefinitions.Add(col3);
                     TextBlock txbx = new TextBlock();
                     txbx.Text = file.DisplayName;
                     txbx.HorizontalAlignment = HorizontalAlignment.Center;
                     txbx.VerticalAlignment = VerticalAlignment.Center;
-                    Grid.SetColumn(txbx, 0);
-                    HyperlinkButton btn = new HyperlinkButton();
+                    Grid.SetColumn(txbx,0);
+
+                    TextBlock DateTextBlock = new TextBlock();
+                    XmlDocument doc = await XmlDocument.LoadFromFileAsync(file);
+                    DateTextBlock.Text = doc.DocumentElement.Attributes.GetNamedItem("date").NodeValue.ToString();
+                    DateTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
+                    DateTextBlock.VerticalAlignment = VerticalAlignment.Center;
+                    Grid.SetColumn(DateTextBlock, 1);
+
+                    Button btn = new Button();
                     btn.Content = "View";
                     btn.Name = file.DisplayName;
                     btn.HorizontalAlignment = HorizontalAlignment.Right;
@@ -66,28 +75,11 @@ namespace todo_list
                     {
                         Frame.Navigate(typeof(ViewEvent), file);
                     };
-                    Grid.SetColumn(btn, 1);
-                    Button delate = new Button();
-                    delate.HorizontalAlignment = HorizontalAlignment.Right;
-                    delate.VerticalAlignment = VerticalAlignment.Center;
-                    delate.Content = "Delete";
-                    Confirm.Click += async (s, ea) =>
-                    {
-                        await file.DeleteAsync();
-                        ConfirmFlyout.Hide();
-                        Frame.Navigate(typeof(EventList));
-                    };
-                    Cancel.Click += (s, ea) =>
-                    {
-                        ConfirmFlyout.Hide();
-                    };
-                    delate.Flyout = ConfirmFlyout;
-                    delate.Flyout = ConfirmFlyout;
-                    Grid.SetColumn(delate, 2);
+                    Grid.SetColumn(btn, 2);
 
                     a.Children.Add(txbx);
+                    a.Children.Add(DateTextBlock);
                     a.Children.Add(btn);
-                    a.Children.Add(delate);
                     List.Items.Add(a);
                 }
             }
