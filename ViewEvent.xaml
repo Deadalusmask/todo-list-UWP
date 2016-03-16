@@ -7,40 +7,48 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" Background="#FFFF9BA2" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
-                <TextBlock Text="Date" FontSize="20" Width="100"/>
-                <TextBlock Name="DateTextBlock" FontSize="24"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
-                <TextBlock Text="Title" FontSize="20" Width="100"/>
-                <TextBlock Name="Title" Width="400"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
-                <TextBlock Text="Desc" FontSize="20" Width="100"/>
-                <TextBlock Name="Desc" Width="400" Height="220"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="done" Margin="150,0,0,20">
+    <RelativePanel>
+        <StackPanel Name="Main">
+            <Button  Name="BackButton" FontFamily="Segoe MDL2 Assets" Background="#FFFF9BA2" FontSize="24" Content="&#xE248;" Click="BackButton_Click"/>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
+                    <TextBlock Text="Title" FontSize="20" Width="100"/>
+                    <TextBlock Name="Title" FontSize="24" Width="400"/>
+                </StackPanel>                
+                <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
+                    <TextBlock Text="Date" FontSize="20" Width="100"/>
+                    <TextBlock Name="DateTextBlock" FontSize="20"/>
+                </StackPanel>
 
-                </Button>
-                <Button Content="Delete" Margin="50,0,0,20" >
-                    <Button.Flyout>
-                        <Flyout x:Name="ConfirmFlyout">
-                            <StackPanel>
-                                <TextBlock Text="Confirm to delete?" HorizontalAlignment="Center" FontSize="22" Margin="0,0,0,10" />
-                                <StackPanel Orientation="Horizontal" Margin="5">
-                                    <Button Name="Confirm" Content="Confirm" Margin="0,0,20,0"></Button>
-                                    <Button Name="Cancel" Content="Cancel" Click="Cancel_Click"></Button>
+                <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
+                    <TextBlock Text="Desc" FontSize="20" Width="100"/>
+                    <TextBlock Name="Desc" FontSize="20" Width="400" Height="220"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Button Name="DoneButton" Content="Done" Margin="150,0,0,20">
+                        </Button>
+                    </StackPanel>
+                    <Button Content="Delete" Margin="150,0,0,20" >
+                        <Button.Flyout>
+                            <Flyout x:Name="ConfirmFlyout">
+                                <StackPanel>
+                                    <TextBlock Text="Confirm to delete?" HorizontalAlignment="Center" FontSize="22" Margin="0,0,0,10" />
+                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                        <Button Name="Confirm" Content="Confirm" Margin="0,0,20,0"></Button>
+                                        <Button Name="Cancel" Content="Cancel" Click="Cancel_Click"></Button>
+                                    </StackPanel>
                                 </StackPanel>
-                            </StackPanel>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
-    </StackPanel>
+        <Image Name="DoneIm" Visibility="Collapsed" Width="150" Height="200" Source="Assets/DONE.png" RelativePanel.AlignRightWith="Main"/>
+
+    </RelativePanel>
+    
+
 
 </Page>

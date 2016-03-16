@@ -14,6 +14,7 @@
                           SelectionMode="Single" 
                           SelectedDatesChanged="maincalender_SelectedDatesChanged"
                           Background="Transparent"
+                          HorizontalAlignment="Stretch"
                           FontSize="20"
                           Width="615"
                           Height="440" BorderBrush="Transparent"/>

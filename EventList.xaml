@@ -15,9 +15,9 @@
             <AppBarButton Name="create" Width="620" Label="新增" Icon="Add" Click="AppBarButton_Click"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="4*" />
                     <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <ListView Grid.Column="0" x:Name="List1"/>
                 <ListView Grid.Column="1" x:Name="List2"/>

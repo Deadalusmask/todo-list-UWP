@@ -32,6 +32,7 @@ namespace todo_list
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             StorageFile file = e.Parameter as StorageFile;
             if (file == null) return;
             String itemName = file.DisplayName;
@@ -39,12 +40,34 @@ namespace todo_list
             XmlDocument doc = await XmlDocument.LoadFromFileAsync(file);
             DateTextBlock.Text = doc.DocumentElement.Attributes.GetNamedItem("date").NodeValue.ToString();
             Desc.Text = doc.DocumentElement.Attributes.GetNamedItem("describe").NodeValue.ToString();
-            Title.Text = itemName;
+            string status = doc.DocumentElement.Attributes.GetNamedItem("status").NodeValue.ToString();
+            if (status.Length == 4)
+            { 
+                DoneButton.Visibility = Visibility.Collapsed;
+                DoneIm.Visibility = Visibility.Visible;
+            }
+
+            
             Confirm.Click += async (s, ea) =>
             {
                 await file.DeleteAsync();
                 ConfirmFlyout.Hide();
                 Frame.Navigate(typeof(EventList));
+            };
+            DoneButton.Click += async (s, ea) =>
+            {
+                await file.DeleteAsync();
+                StorageFolder storage = await ApplicationData.Current.LocalFolder.GetFolderAsync("TodoList");
+                XmlDocument _doc = new XmlDocument();
+                XmlElement _item = _doc.CreateElement(Title.Text);
+                _item.SetAttribute("date",DateTextBlock.Text);
+                _item.SetAttribute("describe", Desc.Text);
+                _item.SetAttribute("status","Done");
+                _doc.AppendChild(_item);
+                StorageFile Done = await storage.CreateFileAsync(Title.Text  + ".xml", CreationCollisionOption.ReplaceExisting);
+                await _doc.SaveToFileAsync(Done);
+                DoneButton.Visibility = Visibility.Collapsed;
+                DoneIm.Visibility = Visibility.Visible;
             };
         }
 
@@ -68,5 +91,6 @@ namespace todo_list
         {
             ConfirmFlyout.Hide();
         }
+
     }
 }

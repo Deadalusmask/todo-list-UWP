@@ -32,6 +32,7 @@ namespace todo_list
         public AddPage()
         {
             this.InitializeComponent();
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -61,6 +62,7 @@ namespace todo_list
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if (Title.Text == "" || Desc.Text == "") 
                 {
                     await new MessageDialog("Title or Desc couldn't be empty").ShowAsync();
@@ -95,6 +97,8 @@ namespace todo_list
             }
 
             _item.SetAttribute("describe", Desc.Text);
+            string status = "Undone";
+            _item.SetAttribute("status",status);
             _doc.AppendChild(_item);
             StorageFile file = await storage.CreateFileAsync(Title.Text + ".xml", CreationCollisionOption.ReplaceExisting);
             await _doc.SaveToFileAsync(file);
