@@ -31,13 +31,15 @@ namespace todo_list
             ApplicationView.PreferredLaunchViewSize = new Size(660,440);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 650, Height = 450 });
-        
+            
 
             BackButton.Visibility = Visibility.Collapsed;
             HomeListBoxItem.IsSelected = true;
             MainContent.Navigate(typeof(EventList));
 
         }
+
+
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {

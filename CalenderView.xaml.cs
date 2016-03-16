@@ -25,7 +25,18 @@ namespace todo_list
         public CalenderView()
         {
             this.InitializeComponent();
+            //this.SizeChanged += MainPage_SizeChanged;
         }
+        //private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    //Get the current Windows Size
+        //    var bounds = Window.Current.Bounds;
+        //    double height = bounds.Height;
+        //    double width = bounds.Width;
+        //    maincalender.Height = height;
+        //    maincalender.Width = width-44;
+        
+        //}
 
 
         private void maincalender_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)

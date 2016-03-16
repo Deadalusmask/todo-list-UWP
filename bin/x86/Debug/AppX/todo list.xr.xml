@@ -3,19 +3,31 @@
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
       <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="Resources" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
+      <RootProperty Name="ThemeDictionaries" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
+      <RootProperty Name="Color" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Children" />
+      <RootProperty Name="Name" />
       <RootProperty Name="Height" />
+      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Background" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
       <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Name" />
@@ -56,14 +68,15 @@
       <RootEvent Name="TimeChanged" />
     </RootType>
     <RootType FullName="todo_list.AddPage" />
-    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
-      <RootProperty Name="ImageSource" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Name" />
       <RootProperty Name="Width" />
       <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
       <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView" />
     <RootType FullName="todo_list.EventList" />
@@ -97,10 +110,12 @@
       <RootProperty Name="DisplayMode" />
       <RootProperty Name="OpenPaneLength" />
       <RootProperty Name="CompactPaneLength" />
-      <RootProperty Name="PaneBackground" />
       <RootProperty Name="Background" />
       <RootProperty Name="Pane" />
       <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="ImageSource" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
       <RootProperty Name="Name" />

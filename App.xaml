@@ -4,5 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:todo_list"
     RequestedTheme="Light">
-
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="TitleBarBackgroundThemeBrush" Color="CadetBlue" />
+                    <SolidColorBrush x:Key="TitleBarButtonHoverThemeBrush" Color="CadetBlue" />
+                    <SolidColorBrush x:Key="TitleBarButtonPressedThemeBrush" Color="#FF4C4C4C" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="TitleBarBackgroundThemeBrush" Color="CadetBlue" />
+                    <SolidColorBrush x:Key="TitleBarButtonHoverThemeBrush" Color="CadetBlue" />
+                    <SolidColorBrush x:Key="TitleBarButtonPressedThemeBrush" Color="#FF4C4C4C" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="TitleBarBackgroundThemeBrush" Color="CadetBlue" />
+                    <SolidColorBrush x:Key="TitleBarButtonHoverThemeBrush" Color="CadetBlue" />
+                    <SolidColorBrush x:Key="TitleBarButtonPressedThemeBrush" Color="#FF4C4C4C" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

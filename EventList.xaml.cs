@@ -31,31 +31,42 @@ namespace todo_list
         {
             this.InitializeComponent();
             Loaded += EventList_Loaded;
+            this.SizeChanged += MainPage_SizeChanged;
             BackButton.Visibility = Visibility.Collapsed;
         }
 
 
         async void EventList_Loaded(object sender, RoutedEventArgs e)
         {
-            List.Items.Clear();
+            List1.Items.Clear();
+            List2.Items.Clear();
+            List3.Items.Clear();
             StorageFolder storage = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TodoList", CreationCollisionOption.OpenIfExists);
             var files = await storage.GetFilesAsync();
             {
                 foreach (StorageFile file in files)
                 {
                     Grid a = new Grid();
-                    ColumnDefinition col = new ColumnDefinition();
-                    col.Width = new GridLength(150);
-                    a.ColumnDefinitions.Add(col);
-                    ColumnDefinition col2 = new ColumnDefinition();
-                    col2.Width = new GridLength(200);
-                    a.ColumnDefinitions.Add(col2);
-                    ColumnDefinition col3 = new ColumnDefinition();
-                    col3.Width = new GridLength(180);
-                    a.ColumnDefinitions.Add(col3);
+                    Grid b = new Grid();
+                    Grid c = new Grid();
+
+                    var bounds = Window.Current.Bounds;
+                    double height = bounds.Height;
+                    double width = bounds.Width;
+                    a.Width = width;
+
+                    //ColumnDefinition col = new ColumnDefinition();
+                    //col.Width = new GridLength(1,GridUnitType.Star);
+                    //a.ColumnDefinitions.Add(col);
+                    //ColumnDefinition col2 = new ColumnDefinition();
+                    //col2.Width = new GridLength(2,GridUnitType.Star);
+                    //a.ColumnDefinitions.Add(col2);
+                    //ColumnDefinition col3 = new ColumnDefinition();
+                    //col3.Width = new GridLength(1, GridUnitType.Star);
+                    //a.ColumnDefinitions.Add(col3);
                     TextBlock txbx = new TextBlock();
                     txbx.Text = file.DisplayName;
-                    txbx.HorizontalAlignment = HorizontalAlignment.Center;
+                    txbx.HorizontalAlignment = HorizontalAlignment.Left;
                     txbx.VerticalAlignment = VerticalAlignment.Center;
                     Grid.SetColumn(txbx,0);
 
@@ -69,7 +80,7 @@ namespace todo_list
                     Button btn = new Button();
                     btn.Content = "View";
                     btn.Name = file.DisplayName;
-                    btn.HorizontalAlignment = HorizontalAlignment.Right;
+                    btn.HorizontalAlignment = HorizontalAlignment.Left;
                     btn.VerticalAlignment = VerticalAlignment.Center;
                     btn.Click += (s, ea) =>
                     {
@@ -78,12 +89,29 @@ namespace todo_list
                     Grid.SetColumn(btn, 2);
 
                     a.Children.Add(txbx);
-                    a.Children.Add(DateTextBlock);
-                    a.Children.Add(btn);
-                    List.Items.Add(a);
+                    b.Children.Add(DateTextBlock);
+                    c.Children.Add(btn);
+                    List1.Items.Add(a);
+                    List2.Items.Add(b);
+                    List3.Items.Add(c);
                 }
             }
         }
+
+        private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //Get the current Windows Size
+            var bounds = Window.Current.Bounds;
+            double height = bounds.Height;
+            double width = bounds.Width;
+            bg.Width = width;
+            bg.Height = height;
+            create.Width = width-44;
+            List1.Width = width / 5;
+            List1.Width = width / 5 * 2;
+            List1.Width = width / 5;
+        }
+
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {

@@ -72,6 +72,28 @@ namespace todo_list
             }
             // 确保当前窗口处于活动状态
             Window.Current.Activate();
+
+            var titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
+
+            // set up our brushes
+            SolidColorBrush bkgColor = Current.Resources["TitleBarBackgroundThemeBrush"] as SolidColorBrush;
+            SolidColorBrush btnHoverColor = Current.Resources["TitleBarButtonHoverThemeBrush"] as SolidColorBrush;
+            SolidColorBrush btnPressedColor = Current.Resources["TitleBarButtonPressedThemeBrush"] as SolidColorBrush;
+
+            // override colors!
+            titleBar.BackgroundColor = bkgColor.Color;
+            titleBar.ForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonBackgroundColor = Windows.UI.Colors.CadetBlue;
+            titleBar.ButtonForegroundColor = Windows.UI.Colors.Purple;
+            titleBar.ButtonHoverBackgroundColor = btnHoverColor.Color;
+            titleBar.ButtonHoverForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonPressedBackgroundColor = btnPressedColor.Color;
+            titleBar.ButtonPressedForegroundColor = Windows.UI.Colors.White;
+            titleBar.InactiveBackgroundColor = bkgColor.Color;
+            titleBar.InactiveForegroundColor = Windows.UI.Colors.White;
+            titleBar.ButtonInactiveBackgroundColor = bkgColor.Color;
+            titleBar.ButtonInactiveForegroundColor = Windows.UI.Colors.White;
+
         }
 
         /// <summary>

@@ -9,14 +9,16 @@
 
 
 
-        <SplitView Name="MySplitView" 
+    <SplitView Name="MySplitView" 
                    DisplayMode="CompactOverlay" 
                    OpenPaneLength="200" 
                    CompactPaneLength="44"
-                   PaneBackground="#FFFFCAF3"
-                   Background="#19FF4856">
-            <SplitView.Pane>
+                   Background="#FFE1EFFB">
+        <SplitView.Pane>
             <StackPanel>
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="Assets/back.png" />
+                </StackPanel.Background>
                 <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="24" Click="HamburgerButton_Click" BorderThickness="2" />
                 <ListBox SelectionMode="Single" 
                          Name="IconsListBox" 
@@ -56,7 +58,7 @@
                 </StackPanel>
 
             </SplitView.Content>
-        </SplitView>
+    </SplitView>
 
 
 </Page>

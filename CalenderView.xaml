@@ -15,8 +15,8 @@
                           SelectedDatesChanged="maincalender_SelectedDatesChanged"
                           Background="Transparent"
                           FontSize="20"
-                          Width="600"
-                          Height="400" BorderBrush="Transparent"/>
+                          Width="615"
+                          Height="440" BorderBrush="Transparent"/>
             <Button Visibility="Collapsed" Content="Flyout">
                 <Button.Flyout>
                     <Flyout x:Name="MyFlyout" Placement="Bottom">

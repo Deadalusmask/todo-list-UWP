@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-03-14T02:59:14.167</Modified>
+      <Modified>2016-03-15T12:23:43.374</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\bin\x86\Debug\todo list.exe">
       <PackagePath>entrypoint\todo list.exe</PackagePath>
-      <Modified>2016-03-14T02:59:12.344</Modified>
+      <Modified>2016-03-15T12:23:43.087</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Deadalus\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -460,7 +460,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\Assets\back.png">
       <PackagePath>Assets\back.png</PackagePath>
-      <Modified>2016-03-14T02:34:09.955</Modified>
+      <Modified>2016-03-15T11:10:19.842</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -502,7 +502,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\bin\x86\Debug\todo list.xr.xml">
       <PackagePath>todo list.xr.xml</PackagePath>
-      <Modified>2016-03-14T02:39:03.481</Modified>
+      <Modified>2016-03-15T12:07:21.795</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -510,11 +510,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-03-14T02:59:13.769</Modified>
+      <Modified>2016-03-15T12:22:05.117</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Deadalus\Documents\Visual Studio 2015\Projects\todo list\bin\x86\Debug\Core\todo list.exe">
       <PackagePath>todo list.exe</PackagePath>
-      <Modified>2016-03-14T02:59:14.163</Modified>
+      <Modified>2016-03-15T12:23:43.372</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
