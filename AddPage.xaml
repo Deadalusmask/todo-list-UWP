@@ -25,8 +25,20 @@
             <StackPanel Orientation="Horizontal" Margin="50,0,0,20">
                 <TextBlock Text="Desc" FontSize="20" Width="100"/>
                 <TextBox Name="Desc" Width="400" Height="220"/>
-
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="是否发布到微博？" FontSize="12" Margin="50,0,0,5"></TextBlock>
+                <ToggleSwitch Name="weiboctrl" Margin="50,0,0,10">
+                    <ToggleSwitch.OffContent>
+                        <TextBlock FontSize="12" Text="否" />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <TextBlock FontSize="12" Text="发送到微博" />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
+            </StackPanel>
+
+
             <Button Name="SaveButton" Content="Save" FontSize="20" Click="SaveButton_Click" Margin="150,0,0,20"/>
         </StackPanel>
 

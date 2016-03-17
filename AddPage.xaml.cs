@@ -102,6 +102,24 @@ namespace todo_list
             _doc.AppendChild(_item);
             StorageFile file = await storage.CreateFileAsync(Title.Text + ".xml", CreationCollisionOption.ReplaceExisting);
             await _doc.SaveToFileAsync(file);
+            if (weiboctrl.IsOn)
+            {
+                string content = "\"" + Title.Text +"("+Desc.Text+")"+ "\"";
+                var uriWeibo = new Uri("http://localhost:8089/weibo.php" + "?content=" + content);
+
+                // Launch the URI
+                var success = await Windows.System.Launcher.LaunchUriAsync(uriWeibo);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+            }
+
             Frame.GoBack();
 
 
