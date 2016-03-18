@@ -76,6 +76,7 @@ namespace todo_list
 
             if(DateTextBlock.Text!="")
             {
+                datetime = DateTextBlock.Text;
                 _item.SetAttribute("date", DateTextBlock.Text);
 
             }
@@ -105,7 +106,8 @@ namespace todo_list
             if (weiboctrl.IsOn)
             {
                 string content = "\"" + Title.Text +"("+Desc.Text+")"+ "\"";
-                var uriWeibo = new Uri("http://localhost:8089/weibo.php" + "?content=" + content);
+                string date = "\"" + datetime + "\"";
+                var uriWeibo = new Uri("http://localhost:8089/weibo.php" + "?content=" + content+"&date="+date);
 
                 // Launch the URI
                 var success = await Windows.System.Launcher.LaunchUriAsync(uriWeibo);
